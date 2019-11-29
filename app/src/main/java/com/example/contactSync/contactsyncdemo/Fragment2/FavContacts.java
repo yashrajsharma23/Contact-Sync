@@ -1,4 +1,4 @@
-package com.example.inextrix.contactsyncdemo.Fragment2;
+package com.example.contactSync.contactsyncdemo.Fragment2;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,13 +6,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
-import com.example.inextrix.contactsyncdemo.ContactFetching.Contact;
-import com.example.inextrix.contactsyncdemo.ContactFetching.ContactFetcher;
-import com.example.inextrix.contactsyncdemo.Fragment1.ContactsAdapter;
-import com.example.inextrix.contactsyncdemo.GlobalClass;
-import com.example.inextrix.contactsyncdemo.R;
+import com.example.contactSync.contactsyncdemo.ContactFetching.Contact;
+import com.example.contactSync.contactsyncdemo.ContactFetching.ContactFetcher;
+import com.example.contactSync.contactsyncdemo.GlobalClass;
+import com.example.contactSync.contactsyncdemo.R;
 
 import java.util.ArrayList;
 

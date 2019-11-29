@@ -1,4 +1,4 @@
-package com.example.inextrix.contactsyncdemo;
+package com.example.contactSync.contactsyncdemo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.inextrix.contactsyncdemo", appContext.getPackageName());
+        assertEquals("com.example.contactSync.contactsyncdemo", appContext.getPackageName());
     }
 }

@@ -1,16 +1,11 @@
-package com.example.inextrix.contactsyncdemo.Fragment1;
+package com.example.contactSync.contactsyncdemo.Fragment1;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
-import com.example.inextrix.contactsyncdemo.ContactFetching.Contact;
-import com.example.inextrix.contactsyncdemo.FavContactGetSet;
-import com.example.inextrix.contactsyncdemo.GlobalClass;
-import com.example.inextrix.contactsyncdemo.R;
+import com.example.contactSync.contactsyncdemo.ContactFetching.Contact;
+import com.example.contactSync.contactsyncdemo.FavContactGetSet;
+import com.example.contactSync.contactsyncdemo.GlobalClass;
+import com.example.contactSync.contactsyncdemo.R;
 import com.pkmmte.view.CircularImageView;
 
 public class ContactsAdapter extends ArrayAdapter<Contact> implements View.OnClickListener {

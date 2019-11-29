@@ -1,4 +1,4 @@
-package com.example.inextrix.contactsyncdemo;
+package com.example.contactSync.contactsyncdemo;
 
 import android.graphics.Bitmap;
 

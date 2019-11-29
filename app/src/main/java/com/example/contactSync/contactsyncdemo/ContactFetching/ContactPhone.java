@@ -1,10 +1,10 @@
-package com.example.inextrix.contactsyncdemo.ContactFetching;
+package com.example.contactSync.contactsyncdemo.ContactFetching;
 
-public class ContactPhoneFav {
+public class ContactPhone {
 	public String number;
 	public String type;
 
-	public ContactPhoneFav(String number, String type) {
+	public ContactPhone(String number, String type) {
 		System.out.println("Contact phone ::: "+ number+" type:"+type);
 
 		this.number = number;

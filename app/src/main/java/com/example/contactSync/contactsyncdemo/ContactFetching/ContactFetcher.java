@@ -1,22 +1,18 @@
-package com.example.inextrix.contactsyncdemo.ContactFetching;
+package com.example.contactSync.contactsyncdemo.ContactFetching;
 
 import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Email;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.provider.MediaStore;
 import android.support.v4.content.CursorLoader;
 
-import com.example.inextrix.contactsyncdemo.GlobalClass;
-import com.example.inextrix.contactsyncdemo.R;
+import com.example.contactSync.contactsyncdemo.GlobalClass;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;

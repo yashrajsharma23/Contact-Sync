@@ -1,4 +1,4 @@
-package com.example.inextrix.contactsyncdemo.Fragment1;
+package com.example.contactSync.contactsyncdemo.Fragment2;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -19,17 +19,18 @@ import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
-import com.example.inextrix.contactsyncdemo.ContactFetching.Contact;
-import com.example.inextrix.contactsyncdemo.GlobalClass;
-import com.example.inextrix.contactsyncdemo.R;
+import com.example.contactSync.contactsyncdemo.ContactFetching.Contact;
+import com.example.contactSync.contactsyncdemo.GlobalClass;
+import com.example.contactSync.contactsyncdemo.R;
+
 import java.util.ArrayList;
 
 import in.myinnos.alphabetsindexfastscrollrecycler.utilities_fs.StringMatcher;
 
-public class ContactsAdapterRecycler  extends RecyclerView.Adapter<ContactsAdapterRecycler.ViewHolder>
+public class FavContactsAdapterRecycler   extends RecyclerView.Adapter<FavContactsAdapterRecycler.ViewHolder>
         implements SectionIndexer {
 
-    public OnItemClickListener listener;
+    public FavContactsAdapterRecycler.OnItemClickListener listener;
 
     public int i = 0;
 
@@ -51,7 +52,7 @@ public class ContactsAdapterRecycler  extends RecyclerView.Adapter<ContactsAdapt
 
 
 
-    public ContactsAdapterRecycler(Context context, ArrayList<Contact> contacts) {
+    public FavContactsAdapterRecycler(Context context, ArrayList<Contact> contacts) {
         ctx= context;
         this.contact= contacts;
         System.out.println("ContactAdapter::: "+contacts.size());
@@ -62,12 +63,12 @@ public class ContactsAdapterRecycler  extends RecyclerView.Adapter<ContactsAdapt
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
+    public FavContactsAdapterRecycler.ViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
 
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.contact_row, parent, false);
 
-        return new ViewHolder(v);
+        return new FavContactsAdapterRecycler.ViewHolder(v);
     }
 
 
@@ -87,7 +88,7 @@ public class ContactsAdapterRecycler  extends RecyclerView.Adapter<ContactsAdapt
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final FavContactsAdapterRecycler.ViewHolder holder, int position) {
 
         final Contact contact_data =contact.get(position);
 
@@ -133,14 +134,15 @@ public class ContactsAdapterRecycler  extends RecyclerView.Adapter<ContactsAdapt
 
         holder.txtname.setText(contact_data.name);
 
-        if (contact_data.emails.size() > 0 && contact_data.emails.get(0) != null) {
-            holder.contactEmail.setText(contact_data.emails.get(0).address);
+        if (contact_data.emails_fav.size() > 0 && contact_data.emails_fav.get(0) != null) {
+            holder.contactEmail.setText(contact_data.emails_fav.get(0).address);
         }
-        if (contact_data.numbers.size() > 0 && contact_data.numbers.get(0) != null) {
-            holder.textSipUser.setText(contact_data.numbers.get(0).number);
+        if (contact_data.numbers_fav.size() > 0 && contact_data.numbers_fav.get(0) != null) {
+            holder.textSipUser.setText(contact_data.numbers_fav.get(0).number);
         }
 
         if(contact_data.phot_uri != null){
+            System.out.println("Photo Bitmap::::: "+contact_data.phot_uri);
             holder.contactimage.setImageBitmap(contact_data.phot_uri);
         }else{
             //System.out.println("number:1: "+label);
@@ -199,7 +201,7 @@ public class ContactsAdapterRecycler  extends RecyclerView.Adapter<ContactsAdapt
     }
 
 
-    private void setSection(ViewHolder holder, String label) {
+    private void setSection(FavContactsAdapterRecycler.ViewHolder holder, String label) {
         holder.alpha.setText("   " + label.substring(0, 1).toUpperCase());
     }
 
@@ -214,7 +216,7 @@ public class ContactsAdapterRecycler  extends RecyclerView.Adapter<ContactsAdapt
         View cont_alpha_seperator;
         LinearLayout fl_AddToFav;
         private SwipeRevealLayout swipeview;
-        ViewHolder holder;
+        FavContactsAdapterRecycler.ViewHolder holder;
         String contact_name;
 
         ViewHolder(final View itemView) {
@@ -267,32 +269,23 @@ public class ContactsAdapterRecycler  extends RecyclerView.Adapter<ContactsAdapt
                 favContactGetSets = gc.getFavContactList(ctx);
             }
 
-            if (favContactGetSets.contains(contact_data.id)) {
-                ivAddToFav1.setImageResource(R.drawable.imgfav);
-            }else {
-                ivAddToFav1.setImageResource(R.drawable.imgunfav);
-            }
+            ivAddToFav1.setImageResource(R.drawable.imgfav);
 
             ivAddToFav1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     swipeview.close(true);
                     if (favContactGetSets != null) {
-                        //if (!favContactGetSets.contains(contact.numbers.get(0).number)) {
-                        if (!favContactGetSets.contains(contact_data.id)) {
+                        int pos = getAdapterPosition();
+                        ivAddToFav1.setImageResource(R.drawable.imgunfav);
 
-                            favContactGetSets.add(contact_data.id);
-                            ivAddToFav1.setImageResource(R.drawable.imgfav);
+                        favContactGetSets.remove(contact_data.id);
+                        gc.setFavContactList(ctx, favContactGetSets);
+                        notifyItemChanged(getAdapterPosition());
+                        notifyDataSetChanged();
 
-                            gc.setFavContactList(ctx, favContactGetSets);
-
-                        }else {
-                            ivAddToFav1.setImageResource(R.drawable.imgunfav);
-                            notifyDataSetChanged();
-                            favContactGetSets.remove(contact_data.id);
-                            gc.setFavContactList(ctx, favContactGetSets);
-
-                        }
+                        contact.remove(pos);
+                        notifyItemRemoved(getAdapterPosition());
                     }
                 }
             });
@@ -329,7 +322,7 @@ public class ContactsAdapterRecycler  extends RecyclerView.Adapter<ContactsAdapt
                         intent1.putExtra("selectednumber", label);
                         ctx.sendBroadcast(intent1);
                     } else {
-                        CustomDialogClass cdd = new CustomDialogClass(ctx, contact_data, pos1);
+                        FavContactsAdapterRecycler.CustomDialogClass cdd = new FavContactsAdapterRecycler.CustomDialogClass(ctx, contact_data, pos1);
                         cdd.show();
                     }
 

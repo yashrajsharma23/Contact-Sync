@@ -1,8 +1,7 @@
-package com.example.inextrix.contactsyncdemo;
+package com.example.contactSync.contactsyncdemo;
 
 import java.util.ArrayList;
 
-import android.app.Fragment;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -14,7 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import com.example.inextrix.contactsyncdemo.ContactFetching.Contact;
+import com.example.contactSync.contactsyncdemo.ContactFetching.Contact;
+import com.example.contactSync.contactsyncdemo.R;
 
 public class MainActivity extends AppCompatActivity {
 	ArrayList<Contact> listContacts;

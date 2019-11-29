@@ -1,12 +1,12 @@
-package com.example.inextrix.contactsyncdemo;
+package com.example.contactSync.contactsyncdemo;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.ViewGroup;
 
-import com.example.inextrix.contactsyncdemo.Fragment1.ContactsFragment1;
-import com.example.inextrix.contactsyncdemo.Fragment2.FavContacts;
+import com.example.contactSync.contactsyncdemo.Fragment1.ContactsFragment1;
+import com.example.contactSync.contactsyncdemo.Fragment2.FavContacts;
 
 import java.util.HashMap;
 import java.util.Map;
