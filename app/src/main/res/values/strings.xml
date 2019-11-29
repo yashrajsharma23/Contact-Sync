@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ContactSyncDemo</string>
+    <string name="action_settings">Settings</string>
+    <string name="test_user">James Bond</string>
+    <string name="test_number">447410623097</string>
+    <string name="noRecord">No Record(s) Found</string>
+
+</resources>

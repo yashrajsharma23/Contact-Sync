@@ -1,0 +1,3 @@
+include ':app'
+include ':alphabetsindexfastscrollrecycler'
+include ':swipe-reveal-layout'

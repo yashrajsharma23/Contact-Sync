@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/contact_selected"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/cont_alpha_seperator"
+        android:layout_width="match_parent"
+        android:layout_height="4dp" />
+
+    <com.chauthai.swipereveallayout.SwipeRevealLayout
+        android:id="@+id/swipelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dragEdge="right"
+        app:mode="same_level">
+
+        <LinearLayout
+            android:id="@+id/delete_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/idFav12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:paddingRight="10dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:src="@drawable/edit"
+                android:tint="@color/icon_color"
+                />
+            <ImageView
+                android:id="@+id/idFav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:src="@drawable/imgunfav"
+                android:tint="@color/icon_color"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="55dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:orientation="vertical">
+
+                <com.pkmmte.view.CircularImageView
+                    android:id="@+id/contact_image"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:background="@null"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/userdefault" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="0.08"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.08"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/contactEntryText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:ellipsize="marquee"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/contactEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="marquee"
+                        android:textColor="#9A9A9A"
+                        android:textSize="11dp"
+                        android:layout_marginRight="15dp"
+                        android:singleLine="true"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textSipUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:textColor="#9A9A9A"
+
+                    android:textSize="13dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="right|bottom"
+                    android:gravity="right|bottom"
+                    android:singleLine="true"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <!-- <ImageView
+                android:id="@+id/statusImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="0.01" /> -->
+
+
+        </LinearLayout>
+
+    </com.chauthai.swipereveallayout.SwipeRevealLayout>
+
+</LinearLayout>
+
+
+ <!--   <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:padding="3dp"
+android:layout_height="match_parent" >
+
+<TextView
+    android:id="@+id/tvName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:text="Bob Marley"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/tvPhone"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_below="@+id/tvName"
+    android:text="(626) 336-5889"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+<TextView
+    android:id="@+id/tvEmail"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#575757"
+    android:layout_alignBaseline="@+id/tvPhone"
+    android:layout_alignBottom="@+id/tvPhone"
+    android:paddingLeft="5dp"
+    android:layout_toRightOf="@+id/tvPhone"
+    android:layout_alignParentRight="true"
+    android:text="bob@fake.com"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>-->
